@@ -1,0 +1,10 @@
+requests
+lxml
+bs4
+pandas
+numpy
+scrapy
+selenium
+webdriver_manager
+python-dotenv
+langchain
