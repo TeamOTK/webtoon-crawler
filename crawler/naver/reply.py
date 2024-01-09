@@ -32,7 +32,7 @@ options.add_argument('--start-maximized')
 options.add_argument('--start-fullscreen') ## 전체 화면 없애려면 주석 처리
 options.add_argument('--disable-blink-features=AutomationControlled')
 
-class Crawler:
+class Reply:
     def __init__(self, save_path, week, no, titleId):
         self.url = f'https://comic.naver.com/webtoon/detail?titleId={titleId}&no={no}&week={week}'
         self.save_path = save_path + f'{titleId}/{no}/'
@@ -284,6 +284,6 @@ if __name__ == '__main__':
         no = crawl['no']
         titleId = crawl['titleId']
 
-        crawler = Crawler(save_path, week, no, titleId)
+        crawler = Reply(save_path, week, no, titleId)
         # crawler.get_bestreply()
         crawler.get_reply()
