@@ -1,36 +1,15 @@
 
 from bs4 import BeautifulSoup
-import lxml
 import os
 import warnings
 from tqdm import tqdm
 import time
 import csv
 from csv import writer
-import pandas as pd
-import requests
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select, WebDriverWait
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import ActionChains
 
-warnings.filterwarnings('ignore')
-options = Options()
-user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36"
-options.add_argument('user-agent=' + user_agent)
-## for background
-options.add_argument("headless") ## 크롤링 창 보이게 하려면 주석 처리
-options.add_argument('--window-size=1920, 1080')
-options.add_argument('--no-sandbox')
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument('--start-maximized') 
-options.add_argument('--start-fullscreen') ## 전체 화면 없애려면 주석 처리
-options.add_argument('--disable-blink-features=AutomationControlled')
+from common.driver import Driver
+from model.webtoon import Webtoon
+
 
 class Reply:
     def __init__(self, save_path, week, no, titleId):
