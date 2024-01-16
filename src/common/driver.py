@@ -13,8 +13,10 @@ import os
 import logging
 import time
 from dataclass_csv import DataclassWriter
+
 from model.reply import Reply
 from model.webtoon import Webtoon
+from model.namu import Namu
 class Driver:
     def __init__(self):
         pass
@@ -54,6 +56,9 @@ class Driver:
         w = DataclassWriter(f, reply, Reply)
         w.write(skip_header=True)
         
+    def save_namu_csv(self, namu, f):
+        w = DataclassWriter(f, namu, Namu)
+        w.write(skip_header=True)
 
     def open_file(self, save_dir, file_name, columns):
         if not os.path.exists(os.path.dirname(save_dir + file_name)):
